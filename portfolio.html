@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Dickson | Portfolio </title>
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    html { height: 100%; }
+    body { height: 100%; margin: 0; }
+    .portfolio-wrap { height: 100%; overflow-y: auto; overflow-x: hidden; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up { animation: fadeUp 0.8s ease forwards; }
+    .fade-up-d1 { animation: fadeUp 0.8s 0.15s ease forwards; opacity: 0; }
+    .fade-up-d2 { animation: fadeUp 0.8s 0.3s ease forwards; opacity: 0; }
+    .fade-up-d3 { animation: fadeUp 0.8s 0.45s ease forwards; opacity: 0; }
+
+    .project-card:hover { transform: translateY(-8px); }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #d4ff2b;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    .skill-pill:hover { transform: scale(1.05); }
+  </style>
+</head>
+
+<body class="h-full">
+<div id="app" class="portfolio-wrap w-full" style="background:#0a0a0a; color:#e8e4df; font-family:'DM Sans',sans-serif;">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md"
+     style="background:rgba(10,10,10,0.85); border-bottom:1px solid rgba(232,228,223,0.08);">
+
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <span class="text-lg font-bold" style="font-family:'Syne'; color:#d4ff2b;">DC</span>
+
+    <div class="flex gap-8">
+      <a href="#work" onclick="smoothScroll(event,'work')" class="nav-link text-sm">Work</a>
+      <a href="#about" onclick="smoothScroll(event,'about')" class="nav-link text-sm">About</a>
+      <a href="#contact" onclick="smoothScroll(event,'contact')" class="nav-link text-sm">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="min-h-screen flex items-center px-6 pt-20">
+  <div class="max-w-6xl mx-auto">
+
+    <p class="fade-up text-sm tracking-widest uppercase mb-6 text-[#d4ff2b]">
+      Web Developer
+    </p>
+
+    <h1 class="fade-up-d1 text-6xl md:text-8xl font-extrabold" style="font-family:'Syne';">
+      Dxn<br>Codes
+    </h1>
+
+    <p class="fade-up-d2 text-lg md:text-xl max-w-xl mt-6 text-white/60">
+      I’m a student developer on a journey to master web development. I love turning ideas into real, working websites.
+    </p>
+
+    <div class="fade-up-d3 mt-10 flex gap-4">
+      <a href="#work" onclick="smoothScroll(event,'work')"
+         class="px-6 py-3 rounded-full bg-[#d4ff2b] text-black font-semibold hover:scale-105 transition">
+         View Work
+      </a>
+
+      <a href="#contact" onclick="smoothScroll(event,'contact')"
+         class="px-6 py-3 rounded-full border border-white/20 hover:scale-105 transition">
+         Get in Touch
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<!-- WORK -->
+<section id="work" class="px-6 py-24">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family:'Syne';">Selected Work</h2>
+    <p class="mb-16 text-sm tracking-widest uppercase text-[#d4ff2b]">Recent Projects</p>
+
+    <div id="projects-grid"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="px-6 py-24 bg-white/5">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+
+    <div>
+      <h2 class="text-4xl font-bold mb-4" style="font-family:'Syne';">About</h2>
+      <p class="text-white/70 mt-6">
+        I am Dickson, a passionate student developer building my skills in web development and programming. I enjoy creating websites, learning new technologies, and improving step by step every day.
+      </p>
+    </div>
+
+    <div>
+      <p class="text-[#d4ff2b] mb-6 uppercase text-sm">Skills</p>
+      <div id="skills-container" class="flex flex-wrap gap-3"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="px-6 py-24 text-center">
+  <h2 class="text-4xl font-bold mb-4" style="font-family:'Syne';">Let's Talk</h2>
+  <p class="text-[#d4ff2b] uppercase mb-10">Get in Touch</p>
+
+  <a href="mailto:dickson21032011@gmail.com"
+     class="text-xl md:text-2xl font-bold text-[#d4ff2b] hover:opacity-80">
+     dickson21032011@gmail.com
+  </a>
+
+  <div class="flex justify-center gap-6 mt-12">
+
+    <a href="https://github.com/dickson-codes" target="_blank" rel="noopener noreferrer">
+      <i data-lucide="github"></i>
+    </a>
+
+    <a href="https://youtube.com/@dickson-codes" target="_blank" rel="noopener noreferrer">
+      <i data-lucide="youtube"></i>
+    </a>
+
+    <a href="https://instagram.com/dickson.dev" target="_blank" rel="noopener noreferrer">
+      <i data-lucide="instagram"></i>
+    </a>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="px-6 py-8 text-center text-xs text-white/40 border-t border-white/10">
+  © 2026 Dickson Codes. Built by me
+</footer>
+
+</div>
+
+<script>
+const projects = [];
+const skills = ['HTML', 'CSS', 'JavaScript', 'Basic Python'];
+
+function renderProjects(){
+  document.getElementById('projects-grid').innerHTML = `
+    <div class="text-center py-20">
+      <h3 class="text-2xl font-bold">Projects Coming Soon...</h3>
+      <p class="text-white/60 mt-2">I'm currently working on some cool stuff</p>
+    </div>
+  `;
+}
+
+function renderSkills(){
+  const container = document.getElementById('skills-container');
+  container.innerHTML = skills.map(s =>
+    `<span class="px-4 py-2 border border-[#d4ff2b]/30 text-[#d4ff2b] rounded-full text-sm">${s}</span>`
+  ).join('');
+}
+
+function smoothScroll(e,id){
+  e.preventDefault();
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+renderProjects();
+renderSkills();
+lucide.createIcons();
+</script>
+
+</body>
+</html>
