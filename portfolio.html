@@ -157,16 +157,45 @@
 </div>
 
 <script>
-const projects = [];
+<script>
+const projects = [
+  {
+    title: "Weather App",
+    desc: "A modern weather app with real-time data, hourly forecast, search overlay, animations, and custom UI.",
+    link: "https://dickson-codes.github.io/WeatherApp/index.html",
+    tech: ["HTML", "CSS", "JavaScript", "API"]
+  }
+];
+
 const skills = ['HTML', 'CSS', 'JavaScript', 'Basic Python'];
 
 function renderProjects(){
-  document.getElementById('projects-grid').innerHTML = `
-    <div class="text-center py-20">
-      <h3 class="text-2xl font-bold">Projects Coming Soon...</h3>
-      <p class="text-white/60 mt-2">I'm currently working on some cool stuff</p>
+  const container = document.getElementById('projects-grid');
+
+  container.innerHTML = projects.map(p => `
+    <div class="project-card p-6 rounded-2xl border border-white/10 hover:shadow-lg transition fade-up">
+
+      <h3 class="text-2xl font-bold mb-2">${p.title}</h3>
+
+      <p class="text-white/60 mb-4">
+        ${p.desc}
+      </p>
+
+      <div class="flex flex-wrap gap-2 mb-4">
+        ${p.tech.map(t => `
+          <span class="text-xs px-3 py-1 border border-[#d4ff2b]/40 text-[#d4ff2b] rounded-full">
+            ${t}
+          </span>
+        `).join('')}
+      </div>
+
+      <a href="${p.link}" target="_blank"
+         class="text-[#d4ff2b] font-semibold hover:underline">
+         View Project →
+      </a>
+
     </div>
-  `;
+  `).join('');
 }
 
 function renderSkills(){
